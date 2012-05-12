@@ -28,16 +28,13 @@ module Muzak
     private 
     
     def get(node, params = {})
-      if params.empty?
-        query_string = params.collect { |k,v| "#{k}=#{v}" }.join("&")
-      else
-        query_string = ''
-      end
-          
-      url = "#{BASE_URL}#{node}?api_key=#{@api_key}&format=json&#{query_string}"
-      
+      params.merge!({api_key: @api_key, format: 'json'})
+            
+      url  = BASE_URL + node   
+      url  = url + '?' + params.collect { |k,v| "#{k}=#{v}" }.join('&') 
+       
       resp = HTTParty.get(url)
-      
+            
       if resp.response.code == '200'
         JSON.parse resp.body
       else
