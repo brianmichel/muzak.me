@@ -14,12 +14,9 @@ module Muzak
     def terms(type = :style)
       type = type.to_sym
       
-      resp = get 'artist/list_terms'
-      
+      resp  = get 'artist/list_terms', {type: type}
       terms = resp['response']['terms']
-      
-      puts terms.inspect
-      
+            
       terms.collect { |t| t['name'] }
     rescue ApiRequestError
       []  
