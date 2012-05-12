@@ -9,6 +9,10 @@ module Muzak
   class App < Sinatra::Base
     get '/' do    
       erb :index
-    end  
+    end 
+
+    get '/spotify/:name' do
+    	Spotify.track_id_from_term(params[:name])
+    end 
   end  
 end  
