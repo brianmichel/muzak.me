@@ -3,4 +3,4 @@ $:.push APP_ROOT
 
 require 'app'
 
-run Muzack::App
+run Muzak::App

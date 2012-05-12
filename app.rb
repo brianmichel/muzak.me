@@ -1,6 +1,6 @@
 require 'sinatra/base'
 
-module Muzack
+module Muzak
   class App < Sinatra::Base
     get '/' do
       "gfy"
