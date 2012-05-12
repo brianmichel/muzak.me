@@ -5,6 +5,16 @@ module Muzak
   class EchoNest
     class ApiRequestError < StandardError; end;
     
+    class Song
+      attr_accessor :artist_id, :id, :artist_name, :title
+      
+      def initialize(args = {})
+        args.each do |k,v|
+          self.send("#{k}=", v)
+        end  
+      end  
+    end  
+    
     BASE_URL = 'http://developer.echonest.com/api/v4/'
     
     def initialize(api_key)
@@ -20,7 +30,16 @@ module Muzak
       terms.collect { |t| t['name'] }
     rescue ApiRequestError
       []  
-    end  
+    end
+    
+    def song_by_mood(mood)
+      resp  = get 'song/search', {mood: mood}
+      songs = resp['response']['songs']
+      
+      songs.collect { |s| Song.new s }
+    rescue ApiRequestError
+      []  
+    end    
     
     private 
     
