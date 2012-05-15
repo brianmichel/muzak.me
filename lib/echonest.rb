@@ -1,4 +1,4 @@
-require 'httparty'
+hrequire 'httparty'
 require 'json'
 
 module Muzak
