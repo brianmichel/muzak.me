@@ -4,6 +4,8 @@
 		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 		<link rel="stylesheet" type="text/css" href="css/app.css">
 		<script type="text/javascript" src="js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+		<script src="http://www.google.com/jsapi" language="javascript"></script>
 		<title>Muzak.me</title>
 	</head>
 	<body>
@@ -17,8 +19,16 @@
 				<%=yield%>
 			</section>
 			<section id="pageFooter">
-				<div id="footer"><p><span class="label label-inverse">Made with <span style="color: red">&hearts;</span> in Philadelphia.</span></p></div>
+				<div id="footer"><p><span class="label label-inverse">Made with <span style="color: red">&hearts;</span> in Philadelphia.</span></p><p id="currentCity">The Ether.</p></div>
 			</section>
 	</div>
 	</body>
+
+	<script language="javascript">
+		if (google.loader.ClientLocation != null) {
+		  $("#currentCity").text("Currently in " + google.loader.ClientLocation.address.city + ".");
+		} else {
+		  alert("Not found");
+		}
+	</script>​
 </html>
