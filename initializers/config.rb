@@ -3,7 +3,8 @@ module Muzak
     OpenStruct.new(
       echonest_api_key: yaml['echonest']['api_key'],
       echonest_consumer_key: yaml['echonest']['consumer_key'],
-      echonest_shared_secret: yaml['echonest']['shared_secret']
+      echonest_shared_secret: yaml['echonest']['shared_secret'],
+      wunderground_api_key: yaml['wunderground']['api_key']
     )
   end
   

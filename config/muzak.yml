@@ -2,3 +2,5 @@ echonest:
   api_key: L0HGW9QGWOTXF4QAM
   consumer_key: 2b40178cccd46bb67df75106131c86ad
   shared_secret: B8h+oItrQMyWOyFK+90Ung
+wunderground:
+  api_key: 903a614f1aacc17e
