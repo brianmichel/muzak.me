@@ -1,9 +1,9 @@
-class Genres < ActiveRecord::Migration
+class CreateGenres < ActiveRecord::Migration
   def self.up
     create_table :genres do |t|
       t.string :mood
       t.string :style
-      t.integer :song_id
+      t.timestamps
     end  
     
     add_index :genres, :style
