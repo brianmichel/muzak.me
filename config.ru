@@ -1,5 +1,5 @@
 APP_ROOT = File.expand_path( File.dirname(__FILE__) )
-$:.push APP_ROOT
+$LOAD_PATH.unshift APP_ROOT
 
 require 'app'
 
